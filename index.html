@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- LOCAL FONTS -->
+    <link rel="stylesheet" href="webfonts/bootstrap-icons.woff" />
+    <link rel="stylesheet" href="webfonts/bootstrap-icons.woff2" />
+    <!-- GOOGLE FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- BOOTSTRAP CSS & ICONS  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css" />
+    <!-- CUSTOME STYLES FILE -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark App</title>
+  </head>
+  <body class="vh-100">
+    <!--* Modal -->
+    <div class="modal fade" id="formModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h1
+              class="modal-title fs-5 ms-auto text-capitalize"
+              id="formModalLabel"
+            ></h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!--* this is where adding new bookmark inputs -->
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label
+                  for="websiteName"
+                  class="form-label text-capitalize d-flex align-items-center gap-1"
+                >
+                  <i class="bi bi-type fs-5" style="color: #6366f1"></i>
+                  bookmark name</label
+                >
+                <input
+                  required
+                  type="url"
+                  class="form-control"
+                  id="websiteName"
+                  placeholder="Ex: my favorite website"
+                />
+                <div id="websiteNameError" class="form-text text-danger d-none">
+                  <i class="bi bi-exclamation-circle text-danger"></i>
+                  should be at least 3 characters
+                </div>
+              </div>
+              <div class="mb-3">
+                <label
+                  for="basic-url"
+                  class="form-label text-capitalize d-flex align-items-center gap-1"
+                >
+                  <i class="bi bi-link fs-5" style="color: #6366f1"></i>
+                  website URL</label
+                >
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon3"
+                    >https://</span
+                  >
+                  <input
+                    required
+                    type="url"
+                    id="basic-url"
+                    class="form-control"
+                    placeholder="Ex: www.facebook.com"
+                    aria-describedby="basic-addon3 basic-addon4"
+                  />
+                </div>
+                <div class="form-text text-danger d-none" id="urlError">
+                  <i class="bi bi-exclamation-circle text-danger"></i>
+                  Url is not valid
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              class="text-uppercase addbookmark w-100 d-flex justify-content-center align-items-center rounded-3 fw-bolder"
+              style="height: 50px"
+            >
+              <i class="bi bi-plus" style="font-size: 2rem"></i>
+              add bookmark
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="container p-5">
+      <h1 class="text-capitalize text-center header-title">bookmarker pro</h1>
+    </header>
+    <section>
+      <div class="container shadow-lg p-4 rounded-4">
+        <div class="row justify-content-center">
+          <div class="col-9">
+            <div class="input-group h-100">
+              <div
+                class="input-group-text position-absolute h-100"
+                id="input-group-search"
+              >
+                <i class="bi bi-search"></i>
+              </div>
+              <input
+                type="search"
+                id="search-input"
+                class="form-control rounded-3"
+                placeholder="Search Bookmarks..."
+              />
+            </div>
+          </div>
+          <div class="col-3">
+            <button
+              class="text-uppercase addbookmark rounded-3 d-flex align-items-center px-3"
+              data-bs-toggle="modal"
+              data-bs-whatever="addBookmarkMood"
+              data-bs-target="#formModal"
+            >
+              <i class="bi bi-plus" style="font-size: 2rem"></i>
+              add new bookmark
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="my-5">
+      <div class="container">
+        <h2 class="text-capitalize mybookmraks-title mb-3">
+          <i class="bi bi-bookmarks-fill"></i>
+          my bookmarks
+        </h2>
+        <!-- TODO: BOOKMARK LIST -->
+        <table class="w-100 table-striped shadow-lg">
+          <thead class="text-uppercase">
+            <tr>
+              <th class="p-2 text-center">#</th>
+              <th class="p-2">website name</th>
+              <th class="p-2">visit</th>
+              <th class="p-2">actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic content -->
+          </tbody>
+        </table>
+        <!-- TODO: ERROR MESSAGE -->
+        <div
+          class="shadow-lg d-flex flex-column justify-content-center align-items-center p-5 rounded-4 d-none"
+          id="bookmarks-error-msg"
+        >
+          <i
+            class="bi bi-emoji-frown text-warning error-msg-icon fw-bolder"
+          ></i>
+          <p class="mb-1 fs-5 fw-bold error-msg-header">No bookmarks yet.</p>
+          <p class="mb-0 text-muted error-msg-text">
+            click "Add new bookmark" button to start adding your favorite sites!
+          </p>
+        </div>
+        <!-- Todo: NO SEARCH RESULT FOUND MESSAGE -->
+        <div
+          class="shadow-lg d-flex flex-column justify-content-center align-items-center p-5 rounded-4 d-none"
+          id="search-error-msg"
+        >
+          <i class="bi bi-emoji-frown text-danger error-msg-icon fw-bolder"></i>
+          <p class="mb-1 fs-5 fw-bold error-msg-header text-danger">
+            No search result found !
+          </p>
+        </div>
+      </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

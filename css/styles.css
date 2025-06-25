@@ -1,0 +1,118 @@
+/** Loading Fonts and Icons */
+@font-face {
+  font-family: 'bootstrap-icons';
+  src: url('../webfonts/bootstrap-icons.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../webfonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../webfonts/Playfair_Display/static/PlayfairDisplay-Italic.ttf')
+    format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../webfonts/Playfair_Display/static/PlayfairDisplay-Bold.ttf')
+    format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  /* font family */
+  --primary-font: 'Pacifico';
+  --secondary-font: 'Poppins';
+  /* colors */
+  --primary-btn: #6366f1;
+  --secondary-color: #3b82f6;
+  --teritary-color: #f59e0b;
+  --white: #ffffff;
+}
+body {
+  background: url('../imgs/polygon-scatter-haikei.svg') no-repeat center center;
+  background-size: cover;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  font-family: var(--primary-font);
+  font-weight: 800;
+  background-image: linear-gradient(
+    90deg,
+    var(--primary-btn),
+    var(--secondary-color),
+    var(--teritary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#input-group-search {
+  z-index: 1;
+  border: none;
+  background: transparent;
+}
+#search-input {
+  padding-left: 40px;
+}
+.input-group > .form-control:focus,
+.input-group > .form-floating:focus-within,
+.input-group > .form-select:focus {
+  z-index: unset;
+}
+
+.addbookmark {
+  border: none;
+  color: var(--white);
+  font-family: var(--secondary-font);
+  background-color: var(--primary-btn);
+}
+
+.mybookmraks-title {
+  font-family: var(--secondary-font);
+}
+
+th:first-child {
+  border-top-left-radius: 15px;
+}
+
+th:last-child {
+  border-top-right-radius: 15px;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+tr:hover {
+  cursor: pointer;
+}
+thead {
+  padding: 55px;
+  letter-spacing: 2px;
+  color: var(--white);
+  font-family: var(--secondary-font);
+  background-color: var(--primary-btn);
+}
+
+.error-msg-icon {
+  font-size: 4.5rem;
+}
+
+.error-msg-header {
+  color: #4b5563;
+  font-family: var(--secondary-font);
+}
+
+.error-msg-text {
+  font-family: var(--secondary-font);
+}
